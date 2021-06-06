@@ -1,0 +1,24 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseList(self, head: ListNode) -> ListNode:
+        value = []
+        tempnode = head
+        while tempnode!=None:
+            value.append(tempnode.val)
+            tempnode = tempnode.next
+        if len(value) == 0:
+            return head
+        result = ListNode(value.pop())
+        temp = result
+        while len(value)!=0:
+            temp.next = ListNode(value.pop())
+            temp = temp.next
+            
+        return result
+           
+Runtime: 32 ms, faster than 86.67% of Python3 online submissions for Reverse Linked List.
+Memory Usage: 16.3 MB, less than 23.19% of Python3 online submissions for Reverse Linked List.
