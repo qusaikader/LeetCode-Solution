@@ -1,0 +1,36 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+class Solution:
+    def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
+        if head.next == None: 
+            head = None
+            return head
+        
+        tempnode = head
+        length = 1
+        while tempnode.next != None:
+            tempnode = tempnode.next
+            length+=1
+        
+        tempnode = head
+        i = length - n
+        counter = 0
+        
+        if i == 0:
+            head = head.next
+            return head
+        
+        while i!=1:
+            tempnode = tempnode.next
+            i-=1
+        tempnode.next = tempnode.next.next
+        return head
+        
+        
+RESULT:
+Runtime: 28 ms, faster than 92.45% of Python3 online submissions for Remove Nth Node From End of List.
+Memory Usage: 14.3 MB, less than 47.72% of Python3 online submissions for Remove Nth Node From End of List.
