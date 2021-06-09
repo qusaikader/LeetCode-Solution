@@ -1,0 +1,41 @@
+class Solution:
+    def findCenter(self, edges: List[List[int]]) -> int:
+        
+        n = []
+        for i in range(len(edges)+1):
+            n.append(i+1)
+        x = Graph(n)
+        for i in edges:
+            x.addedge(i[0],i[1])
+        return x.centerofgraph(n)
+
+            
+class Graph():
+    def __init__(self,n):
+        self.graph = {}
+        for i in n:
+            self.graph[i] = []
+
+            
+    
+    def addedge(self,src,dest):
+
+        if src == dest:
+            self.graph[src].append(dest)
+        else:
+            self.graph[src].append(dest)
+            self.graph[dest].append(src)
+    
+    
+    def centerofgraph(self,n):
+        for i in self.graph.keys():
+            if len(self.graph[i]) == len(n) - 1:
+                return i
+            
+    
+    def PrintGraph(self):
+        for i in self.graph.keys():
+            print("{} -> {}".format(i,self.graph[i]))
+            
+ Runtime: 948 ms, faster than 11.43% of Python3 online submissions for Find Center of Star Graph.
+Memory Usage: 54.8 MB, less than 5.02% of Python3 online submissions for Find Center of Star Graph.
