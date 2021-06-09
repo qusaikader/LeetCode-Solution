@@ -1,0 +1,50 @@
+class Solution:
+    def findJudge(self, n: int, trust: List[List[int]]) -> int:
+        Nodes = []
+        if len(trust) == 0:
+            if n>1:
+                return -1
+            else:
+                return 1
+        for i in range(1,n+1):
+            Nodes.append(i)
+            
+        x = Graph(Nodes)
+        for i in trust:
+            x.addedge(i[0],i[1])
+        ans = x.judge()
+        return ans
+            
+           
+        
+class Graph():
+    def __init__(self,n):
+        self.graph = {}
+        for i in n:
+            self.graph[i] = []
+            
+    def addedge(self,src,dest):
+        self.graph[src].append(dest)
+        
+    def printg(self):
+        for i in self.graph.keys():
+            print("{} -> {}".format(i,self.graph[i]))
+            
+    def judge(self):
+        prob = None
+        for i in self.graph.keys():
+            if len(self.graph[i]) == 0:
+                prob = i
+        if prob == None:
+            return -1
+        else:
+            for i in self.graph.keys():
+                if i==prob:
+                    continue
+                elif prob not in self.graph[i]:
+                    return -1
+            else:
+                return prob
+        
+Runtime: 728 ms, faster than 74.54% of Python3 online submissions for Find the Town Judge.
+Memory Usage: 18.9 MB, less than 85.69% of Python3 online submissions for Find the Town Judge.
