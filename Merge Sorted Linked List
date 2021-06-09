@@ -1,0 +1,31 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
+        if l1 == None and l2 == None:
+            return l1
+        
+        tempnode = l1
+        list1 = []
+        while tempnode!=None:
+            list1.append(tempnode.val)
+            tempnode = tempnode.next
+        
+        tempnode = l2
+        while tempnode!=None:
+            list1.append(tempnode.val)
+            tempnode = tempnode.next
+
+        list1= sorted(list1)
+        l3 = ListNode(list1[0])
+        tempnode = l3
+        for i in range(1,len(list1)):
+            tempnode.next = ListNode(list1[i])
+            tempnode = tempnode.next
+        return l3
+        
+Runtime: 32 ms, faster than 91.33% of Python3 online submissions for Merge Two Sorted Lists.
+Memory Usage: 14.3 MB, less than 29.07% of Python3 online submissions for Merge Two Sorted Lists.
