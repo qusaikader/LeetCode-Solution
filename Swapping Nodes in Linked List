@@ -1,0 +1,36 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def swapNodes(self, head: ListNode, k: int) -> ListNode:
+        if head.next == None:
+            return head
+            
+        tempnode = head
+        i = 0
+        while tempnode!=None:
+            tempnode = tempnode.next
+            i+=1
+        x = k
+        y = (i-k) +1
+        if x == y:
+            return head
+        else:
+            tempnode = head
+            counter = 0
+            while tempnode!=None:
+                counter+=1
+                if counter == x:
+                    firstnode = tempnode
+                if counter == y:
+                    secondnode = tempnode
+                tempnode = tempnode.next
+            firstnode.val,secondnode.val = secondnode.val,firstnode.val
+        
+        return head
+
+
+Runtime: 1280 ms, faster than 18.12% of Python3 online submissions for Swapping Nodes in a Linked List.
+Memory Usage: 48.9 MB, less than 28.86% of Python3 online submissions for Swapping Nodes in a Linked Lis
