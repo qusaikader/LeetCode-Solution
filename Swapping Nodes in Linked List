@@ -31,6 +31,5 @@ class Solution:
         
         return head
 
-
-Runtime: 1280 ms, faster than 18.12% of Python3 online submissions for Swapping Nodes in a Linked List.
-Memory Usage: 48.9 MB, less than 28.86% of Python3 online submissions for Swapping Nodes in a Linked Lis
+Runtime: 1712 ms, faster than 10.16% of Python3 online submissions for Swapping Nodes in a Linked List.
+Memory Usage: 48.6 MB, less than 99.84% of Python3 online submissions for Swapping Nodes in a Linked List.
