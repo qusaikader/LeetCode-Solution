@@ -1,0 +1,36 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def addTwoNumbers(self, l1: ListNode, l2: ListNode) -> ListNode:
+        num1 = []
+        while l1!=None:
+            num1.append(str(l1.val))
+            l1 = l1.next
+        num2 = []
+        while l2!=None:
+            num2.append(str(l2.val))
+            l2 = l2.next
+        num1.reverse()
+        num1 = int("".join(num1))
+        num2.reverse()
+        num2 = int("".join(num2))
+        num3 = (num1 + num2)
+        num3 = str(num3)
+        num3 = list(num3)
+        num3.reverse()
+        i = 1
+        result = ListNode(int(num3[0]))
+        temp = result
+        while i!=len(num3):
+            temp.next = ListNode(int(num3[i]))
+            temp = temp.next
+            i+=1
+        
+        return result
+
+THIS IS NOT AN OPTIMAL SOLUTION CAN BE DONE BETTER WAY
+Runtime: 72 ms, faster than 54.17% of Python3 online submissions for Add Two Numbers.
+Memory Usage: 14.4 MB, less than 41.64% of Python3 online submissions for Add Two Numbers.
