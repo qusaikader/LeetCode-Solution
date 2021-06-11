@@ -1,0 +1,49 @@
+This program was to traverse all edges once and output should be in lexigraphic order I used Eularian Path concept of HIENHOLZERS ALGORITHM
+
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        def eularianpathutil(start,out,path):
+            
+            while out[start]!=0:
+                i = graph[start][out[start]-1]
+                out[start]-=1
+                eularianpathutil(i,out,path)
+            
+            path.append(start)
+            return path
+        
+        def eularianpath(start,out):
+            path = []
+            return (eularianpathutil(start,out,path))  
+      
+            
+        tickets = sorted(tickets,key = lambda x : x[1],reverse = True)  
+        
+        graph = {}
+        nodes = []
+        for i in tickets:
+            if i[0] not in nodes:
+                nodes.append(i[0])
+            if i[1] not in nodes:
+                nodes.append(i[1])
+        
+        nodes = sorted(nodes,reverse = True)
+        
+        out = {}
+
+        for i in nodes:
+            graph[i] = []
+            out[i] = 0
+ 
+
+        for i in tickets:
+            graph[i[0]].append(i[1])
+            out[i[0]]+=1
+
+        
+        ans = eularianpath("JFK",out)
+        ans.reverse()
+        return ans
+
+Runtime: 76 ms, faster than 81.55% of Python3 online submissions for Reconstruct Itinerary.
+Memory Usage: 15 MB, less than 25.34% of Python3 online submissions for Reconstruct Itinerary
