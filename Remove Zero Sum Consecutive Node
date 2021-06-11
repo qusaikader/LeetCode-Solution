@@ -1,0 +1,65 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def removeZeroSumSublists(self, head: ListNode) -> ListNode:
+        if head.val == 0:
+            if head.next:
+                head = head.next
+            else:
+                return None
+            
+        tempnode = head
+        lis = []
+        while tempnode!=None:
+            if tempnode.val == 0:
+                tempnode = tempnode.next
+                continue
+            else:
+                lis.append(tempnode.val)
+                tempnode = tempnode.next
+        
+        if len(lis) == 0:
+            return None
+        
+        
+        
+        
+        head = ListNode(lis.pop(0))
+        tempnode = head
+        while len(lis)!=0:
+            tempnode.next = ListNode(lis.pop(0))
+            tempnode = tempnode.next            
+        
+        ans = []
+        
+        
+        while head!=None:
+            sum=head.val
+            tempnode = head.next
+            while tempnode!=None:
+                sum+=tempnode.val
+                if sum == 0:
+                    head = tempnode.next
+                tempnode = tempnode.next
+            if head:
+                ans.append(head.val)
+                head = head.next
+            else:
+                break
+            
+        if len(ans) == 0:
+            return None
+        final = ListNode(ans.pop(0))
+        tempnode = final
+        while len(ans)!=0:
+            tempnode.next = ListNode(ans.pop(0))
+            tempnode = tempnode.next
+        return final
+        
+        
+###3 Have not done good in time and splace complexity    
+Runtime: 144 ms, faster than 13.95% of Python3 online submissions for Remove Zero Sum Consecutive Nodes from Linked List.
+Memory Usage: 14.9 MB, less than 11.34% of Python3 online submissions for Remove Zero Sum Consecutive Nodes from Linked List.
