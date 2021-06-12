@@ -1,0 +1,43 @@
+
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        def DFS(start,visited,graph):
+            stack = []
+            stack.append(start)
+            res = []
+            while len(stack)!=0:
+                next = stack.pop(0)
+                visited[next] = True
+                
+                if next in res:
+                    continue
+                else:
+                    res.append(next)
+                for i in graph[next]:
+                    stack.append(i)
+
+        
+        nodes = []
+        for i in range(len(rooms)):
+            nodes.append(i)
+        graph = {}
+        visited = {}
+        for i in nodes:
+            graph[i] = rooms[i]
+            visited[i] = False
+        
+        count = 0
+        for i in nodes:
+            if visited[i] == False:
+                count+=1
+                if count>1:
+                    return False
+                DFS(0,visited,graph)
+        else:
+            return True
+            
+            
+THE REASON FOR RUNTIME BEING MORE IS I CREATE THE GRAPH FOR MY REFERENCE
+WITHOUT CRETING GRAPH ALSO YOU CAN WORK USING ONLY EDGES
+Runtime: 88 ms, faster than 17.07% of Python3 online submissions for Keys and Rooms.
+Memory Usage: 14.8 MB, less than 80.80% of Python3 online submissions for Keys and Rooms.
