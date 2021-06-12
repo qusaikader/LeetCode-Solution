@@ -5,12 +5,6 @@
 #         self.next = next
 class Solution:
     def numComponents(self, head: ListNode, nums: List[int]) -> int:
-        if head.next == None:
-            if head.val in nums:
-                return 1
-            else:
-                return 0
-        
     
         count=0
         while head!=None:
