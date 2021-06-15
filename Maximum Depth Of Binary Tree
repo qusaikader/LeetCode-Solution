@@ -30,6 +30,5 @@ class Solution:
                     que.append(next.right)
                 
             return level
-
-Runtime: 36 ms, faster than 91.54% of Python3 online submissions for Maximum Depth of Binary Tree.
-Memory Usage: 15.4 MB, less than 90.64% of Python3 online submissions for Maximum Depth of Binary Tree.
+Runtime: 36 ms, faster than 91.67% of Python3 online submissions for Maximum Depth of Binary Tree.
+Memory Usage: 15.3 MB, less than 96.36% of Python3 online submissions for Maximum Depth of Binary Tree.
