@@ -1,0 +1,35 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxDepth(self, root: TreeNode) -> int:
+            if root == None: return 0
+            if root.left == None and root.right==None:
+                return 1
+ 
+            que = []
+            level=0
+            que.append(root)
+            que.append("F")
+            while len(que)!=0:
+                next = que.pop(0)
+                if next == "F":
+                    if len(que)!=0:
+                        level+=1
+                        que.append("F")
+                        continue 
+                    else:
+                        level+=1
+                        break
+                if next.left:
+                    que.append(next.left)
+                if next.right:
+                    que.append(next.right)
+                
+            return level
+
+Runtime: 448 ms, faster than 99.35% of Python3 online submissions for Minimum Depth of Binary Tree.
+Memory Usage: 49 MB, less than 87.69% of Python3 online submissions for Minimum Depth of Binary Tree.
