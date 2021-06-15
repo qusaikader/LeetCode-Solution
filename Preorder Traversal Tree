@@ -1,0 +1,27 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def preorderTraversal(self, root: TreeNode) -> List[int]:
+        
+        
+        if root == None: return root
+        
+        
+        stack = [root]
+        result = []
+        while len(stack)!=0:
+            next = stack.pop()
+            result.append(next.val)
+            if next.right:
+                stack.append(next.right)
+            if next.left:
+                stack.append(next.left)
+        
+        return result
+        
+Runtime: 24 ms, faster than 95.85% of Python3 online submissions for Binary Tree Preorder Traversal.
+Memory Usage: 14.1 MB, less than 73.06% of Python3 online submissions for Binary Tree Preorder Traversal.
