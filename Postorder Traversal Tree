@@ -1,0 +1,26 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def postorderTraversal(self, root: TreeNode) -> List[int]:
+        if root == None: return root
+        
+        
+        stack = [root]
+        result = []
+        while len(stack)!=0:
+            next = stack.pop()
+            result.append(next.val)
+            if next.left:
+                stack.append(next.left)
+            if next.right:
+                stack.append(next.right)
+
+
+        result.reverse()
+        return result
+Runtime: 32 ms, faster than 60.20% of Python3 online submissions for Binary Tree Postorder Traversal.
+Memory Usage: 14 MB, less than 98.19% of Python3 online submissions for Binary Tree Postorder Traversal
