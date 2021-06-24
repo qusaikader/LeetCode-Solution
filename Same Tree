@@ -1,0 +1,59 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def isSameTree(self, p: TreeNode, q: TreeNode) -> bool:
+            if p == None and q == None: return True
+            if p == None or q == None: return False
+            if (p.left  == None and p.right == None) and (q.left  == None and q.right == None):
+                if p.val == q.val:
+                    return True
+                else:
+                    return False
+            
+            stack = [p]
+            result = []
+            while len(stack)!=0:
+                next = stack.pop()
+                if next == "null":
+                    result.append(next)
+                    continue
+                else:
+                    result.append(next.val)
+                if next.right:
+                    stack.append(next.right)
+                else:
+                    stack.append("null")
+                if next.left:
+                    stack.append(next.left)
+                else:
+                    stack.append("null")
+
+            stack = [q]
+            result2 = []
+            while len(stack)!=0:
+                next = stack.pop()
+                if next == "null":
+                    result2.append(next)
+                    continue
+                else:
+                    result2.append(next.val)
+                if next.right:
+                    stack.append(next.right)
+                else:
+                    stack.append("null")
+                if next.left:
+                    stack.append(next.left)
+                else:
+                    stack.append("null")
+
+            if result == result2: 
+                return True
+            else:
+                return False
+
+Runtime: 28 ms, faster than 84.11% of Python3 online submissions for Same Tree.
+Memory Usage: 14.1 MB, less than 84.83% of Python3 online submissions for Same Tree.
