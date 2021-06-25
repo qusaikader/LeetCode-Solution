@@ -1,0 +1,25 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedArrayToBST(self, nums: List[int]) -> TreeNode:
+        
+        if not nums:
+            return None
+
+        index = len(nums)//2
+        
+        key = nums[index]
+        root = TreeNode(key)
+        
+        
+        root.left = self.sortedArrayToBST(nums[:index])
+        root.right = self.sortedArrayToBST(nums[index+1:])
+        return root
+        
+
+Runtime: 52 ms, faster than 96.64% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
+Memory Usage: 15.7 MB, less than 58.70% of Python3 online submissions for Convert Sorted Array to Binary Search Tree.
