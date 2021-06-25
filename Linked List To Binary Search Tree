@@ -1,0 +1,77 @@
+<<<<<<<<<<<<<FIRST METHOD>>>>>>>>>>>>>>>>>
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def sortedListToBST(self, head: ListNode) -> TreeNode:
+        if head == None:
+            return
+
+        
+        #finding length
+        
+        tempnode = head
+        length = 0
+        while tempnode:
+            tempnode = tempnode.next
+            length+=1
+        
+        #getting index of middle element
+        
+        index = length//2
+      
+
+        #intializing root
+        
+        tempnode = head
+        k = 0
+    
+        while k!=index:
+            tempnode = tempnode.next
+            k+=1
+
+        node = TreeNode(tempnode.val)
+        
+    
+        #getting right part of list and left part of list
+        
+        tempnode = head
+        left = None
+        c = 0
+        while c!=index:
+            if left == None:
+                left = ListNode(tempnode.val)
+                temp = left
+            else:
+                temp.next = ListNode(tempnode.val)
+                temp = temp.next
+                
+            tempnode = tempnode.next
+            c+=1
+        
+        right = tempnode.next
+
+        
+        node.left = self.sortedListToBST(left)
+        node.right = self.sortedListToBST(right)
+        return node
+        
+        ^^^^^^^^
+       THIS METHOD IS THE SIMPLE METHOD OF RECURSIVELY BUT IT TAKES MORE TIME THEN ARRAY AS IN LINKED LIST ACCESING ELEMNT IS NOT OF O(1) COMPLEXITY
+       ONE MORE METHOD IS CONVERT LINKED LIST TO ARRAY AND DO THE PROCEDURE WHICH TAKES 132ms WHICH MEANS AROUND 45% LESS TIME TAKEN BECAUSE WE TRAVERSE ONLY ONCE 
+       THROUGH THE LINKED LIST
+       <<<<RESULT:Runtime: 216 ms, faster than 8.42% of Python3 online submissions for Convert Sorted List to Binary Search Tree.
+                  Memory Usage: 22.5 MB, less than 7.83% of Python3 online submissions for Convert Sorted List to Binary Search Tree.>>>>>>
+                  
+                  
+<<<<<<<<<<SECOND METHOD>>>>>>>>>>>>>>>>
+       
+     
