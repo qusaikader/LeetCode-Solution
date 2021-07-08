@@ -1,0 +1,16 @@
+class Solution:
+    def maxSubArray(self, nums: List[int]) -> int:
+        max = -10**5
+        sum=0
+        for i in nums:
+            sum+=i
+            if sum>max:
+                max=sum
+            if sum<0:
+                sum=0
+        return max
+  
+ <<<RESULT>>>
+ Runtime: 64 ms, faster than 77.01% of Python3 online submissions for Maximum Subarray.
+Memory Usage: 15 MB, less than 75.65% of Python3 online submissions for Maximum Subarray.
+      
