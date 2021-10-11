@@ -1,0 +1,101 @@
+#include<stdio.h>
+
+#include<string.h>
+#define max 3800
+
+char st[max];
+int top = -1;
+void push(char st[max],char val)
+{
+    if (top == max-1)
+        {
+            printf("STACK IS FULL");
+
+        }
+    else
+        {
+            top++;
+            st[top] = val;
+        }
+
+
+}
+
+
+
+int pop(char st[max])
+{
+    if(top == -1){
+        printf("\nEMPTY STACK");
+        return -1;
+    }
+    else{
+    char val = st[top];
+    top--;
+    return val;
+    }
+}
+
+
+
+
+bool isValid(char * s){
+        
+        char temp;
+        
+        while(*s != '\0')
+        {
+            if (*s=='(' || *s=='{' || *s=='[')
+            {
+                push(st,*s);
+            }
+            else
+            {   
+                temp = pop(st);
+                if(temp == -1){
+                    return 0;
+                }
+                
+                
+                if(temp == '(')
+                    {
+                        if(*s == ']' || *s=='}'){
+                            top = -1;
+                            return 0;
+                        }
+                    }
+                if(temp == '{')
+                    {
+                        if(*s == ']' || *s==')'){
+                            top = -1;
+                            return 0;
+                        }
+                    }
+                if(temp == '[')
+                    {
+                        if(*s == ')' || *s=='}'){
+                            top =-1;
+                            return 0;
+                        }
+                    }
+                
+            }
+            
+            s++;
+        }
+    
+    if(top == -1)
+    {
+        return 1;
+    }
+    else{
+        top = -1;
+        return 0;
+    }
+
+
+}
+
+****************RESULT****************
+Runtime: 0 ms, faster than 100.00% of C online submissions for Valid Parentheses.
+Memory Usage: 5.5 MB, less than 99.43% of C online submissions for Valid Parentheses.
