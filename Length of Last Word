@@ -1,0 +1,16 @@
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        cnt = 0
+        s = s.strip()
+
+        for i in range(-1,-len(s)-1,-1):
+            if s[i] == " ":
+                break
+            else:
+                cnt+=1
+        
+        return cnt
+                
+        
+Runtime: 24 ms, faster than 95.02% of Python3 online submissions for Length of Last Word.
+Memory Usage: 14.2 MB, less than 87.77% of Python3 online submissions for Length of Last Word.
