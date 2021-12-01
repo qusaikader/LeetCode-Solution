@@ -1,0 +1,20 @@
+class Solution:
+    def plusOne(self, digits: List[int]) -> List[int]:
+        if digits[-1] == 9:
+            x = ""
+            for i in digits:
+                x = x+ str(i)
+            x = int(x) 
+            x+=1 
+            x = list(str(x))
+            for i in x:
+                i = int(i)
+            
+            return x
+                
+        else:
+            digits[-1] = digits[-1]+1
+            return digits
+            
+Runtime: 20 ms, faster than 99.57% of Python3 online submissions for Plus One.
+Memory Usage: 14.1 MB, less than 92.35% of Python3 online submissions for Plus One.
