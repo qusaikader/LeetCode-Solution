@@ -1,0 +1,14 @@
+class Solution:
+    def findErrorNums(self, nums: List[int]) -> List[int]:
+        sum_set = sum(set(nums))
+        first = sum(nums) - sum_set
+        
+        i = sum(range(1,max(nums)+1)) - sum_set
+        if i ==0 :
+            i = sum(range(1,max(nums)+2)) - sum_set
+            return [first,i]
+        else:
+            return [first,i]
+        
+Runtime: 184 ms, faster than 92.03% of Python3 online submissions for Set Mismatch.
+Memory Usage: 16.1 MB, less than 16.33% of Python3 online submissions for Set Mismatch
