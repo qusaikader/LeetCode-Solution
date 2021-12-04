@@ -1,0 +1,19 @@
+class Solution:
+    def hasAlternatingBits(self, n: int) -> bool:
+        val = n & 1
+        n = n>>1
+        while n:
+            temp = val
+            val = n & 1
+            if temp == 1 and val == 1:
+                return False
+            elif temp == 0 and val == 0:
+                return False
+            n= n>>1
+
+
+        return True
+
+
+Runtime: 32 ms, faster than 60.69% of Python3 online submissions for Binary Number with Alternating Bits.
+Memory Usage: 14 MB, less than 97.23% of Python3 online submissions for Binary Number with Alternating Bits.
