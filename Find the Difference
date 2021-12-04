@@ -1,0 +1,9 @@
+class Solution:
+    def findTheDifference(self, s: str, t: str) -> str:
+        
+        for i in t:
+            if s.count(i)!= t.count(i):
+                return i
+
+Runtime: 28 ms, faster than 95.45% of Python3 online submissions for Find the Difference.
+Memory Usage: 14.2 MB, less than 62.59% of Python3 online submissions for Find the Difference.
