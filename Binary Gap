@@ -1,0 +1,35 @@
+class Solution:
+    def binaryGap(self, n: int) -> int:
+        temp = n & 1
+        if temp == 1:
+            flag = True
+    
+        else:
+            flag = False
+    
+        n = n>>1
+        
+        distance = 0
+        final_dist = 0
+        while n:
+            temp = n & 1
+            n = n>>1
+            if temp == 1 and flag == False:
+                flag = True
+                
+            elif flag == True and temp == 0:
+                distance+=1
+
+            elif flag == True and temp == 1:
+                distance+=1
+                final_dist = max(final_dist,distance)
+                distance = 0
+
+        
+        return final_dist
+            
+            
+
+
+Runtime: 24 ms, faster than 97.27% of Python3 online submissions for Binary Gap.
+Memory Usage: 14 MB, less than 97.52% of Python3 online submissions for Binary Gap.
