@@ -1,0 +1,22 @@
+class Solution:
+    def singleNumber(self, nums: List[int]) -> List[int]:
+        nums = sorted(nums)
+        ans = [0,0]
+        t = 0
+        i = 0
+        while(i < len(nums)-1):
+            check = nums[i] ^ nums[i+1]
+            if check != 0:
+                ans[t] = nums[i]
+                t+=1
+                i+=1
+            else:
+                i = i+2
+        if(nums[len(nums)-1] != nums[len(nums) -2]):
+            ans[1] = nums[len(nums)-1] 
+        return ans
+        
+
+
+Runtime: 56 ms, faster than 85.22% of Python3 online submissions for Single Number III.
+Memory Usage: 15.9 MB, less than 68.43% of Python3 online submissions for Single Number III.
