@@ -1,0 +1,23 @@
+class Solution:
+    def xorOperation(self, n: int, start: int) -> int:
+        #Method 1
+        ''''
+        # arr = list(range(start,start+(n*2),2))
+        # val = arr[0]
+        # for i in range(1,len(arr)):
+        #     val = val ^ arr[i]
+        # return val
+        '''
+        
+        #Method 2
+        
+        m = start+(n*2)
+        val = start
+        start+=2
+        while start<m:
+            val = val ^ start
+            start+=2
+        return val
+
+Runtime: 24 ms, faster than 96.72% of Python3 online submissions for XOR Operation in an Array.
+Memory Usage: 14.3 MB, less than 18.13% of Python3 online submissions for XOR Operation in an Array
