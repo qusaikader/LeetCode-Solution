@@ -1,0 +1,27 @@
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
+        nums = sorted(nums)
+        ans = 0
+        fdiff = 999999
+        for i in range(len(nums)-2):
+            j = i+1
+            k = len(nums) - 1
+            while(j<k):
+                fsum = nums[i] + nums[j] + nums[k]
+                diff = abs(target-fsum)
+
+                if diff<fdiff:
+                    ans = fsum
+                    fdiff = diff
+    
+
+                if fsum<target:
+                    j+=1
+                elif fsum>target:
+                    k-=1
+                else:
+                    return fsum
+
+        return ans
+Runtime: 116 ms, faster than 85.32% of Python3 online submissions for 3Sum Closest.
+Memory Usage: 14.3 MB, less than 71.78% of Python3 online submissions for 3Sum Closest.
