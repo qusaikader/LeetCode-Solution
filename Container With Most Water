@@ -1,0 +1,19 @@
+class Solution:
+    def maxArea(self, height: List[int]) -> int:
+        area = 0
+        i = 0
+        j = len(height) - 1
+        while i!=j:
+            if height[i] <= height[j]:
+                area = max(height[i] * (j-i),area)
+                i+=1
+            elif height[i] > height[j]:
+                area = max(height[j] * (j-i),area)
+                j-=1
+
+
+        return area
+                
+                
+Runtime: 676 ms, faster than 93.13% of Python3 online submissions for Container With Most Water.
+Memory Usage: 27.5 MB, less than 57.30% of Python3 online submissions for Container With Most Water
