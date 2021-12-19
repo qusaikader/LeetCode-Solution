@@ -1,0 +1,47 @@
+class Solution:
+    def calculate(self, s: str) -> int:
+            operators = ["+","-","*","/"]
+
+            #REMOVING ALL WHITESPACE FROM STRING
+            s = s.replace(" ", "")
+            
+            #Collecting all operator according to occurence
+            op = []
+            for i in s:
+                if i in operators:
+                    op.append(i)
+
+            #FINAL LIST MAKING
+            res = s.replace('-', ' ').replace('+', ' ').replace('*', ' ').replace('/', ' ').split()
+            j = 1
+            for i in op:
+                res.insert(j,i)
+                j+=2 
+
+            if(len(res) == 1):
+                return int(res[0])
+                  
+            stack = []
+
+            i=0
+            while(i<len(res)):
+                if res[i] not in operators:
+                    stack.append(int(res[i]))
+                if res[i] in operators:
+                    if res[i] == "-":
+                        i+=1
+                        stack.append(-(int(res[i])))
+                    if res[i] == "*":
+                        x = int(stack.pop())
+                        i+=1
+                        y = int(res[i])
+                        stack.append((x*y))
+
+                    if res[i] == "/":
+                        x = int(stack.pop())
+                        i+=1
+                        y = int(res[i])
+                        stack.append((int(x/y)))
+                i+=1
+                
+            return sum(stack)  
