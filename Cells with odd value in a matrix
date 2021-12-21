@@ -1,0 +1,30 @@
+JAVA:
+class Solution {
+    public int oddCells(int m, int n, int[][] indices) {
+        int[][] matrix = new int[m][n];
+        int r,c;
+        for(int[] i:indices){
+            r = i[0];
+            c = i[1];
+            for(int k =0;k<n;k++){
+                matrix[r][k]+=1;
+            }
+            for(int x = 0;x<m;x++){
+                matrix[x][c]+=1;
+            }
+        }
+        
+        int count = 0;
+        for(int[] row:matrix){
+            for(int item:row){
+                if(item%2==1){
+                    count++;
+                }
+            }
+        }
+        return count;
+        
+    }
+}
+Runtime: 1 ms, faster than 78.40% of Java online submissions for Cells with Odd Values in a Matrix.
+Memory Usage: 37 MB, less than 76.01% of Java online submissions for Cells with Odd Values in a Matrix.
