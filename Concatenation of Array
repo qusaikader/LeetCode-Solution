@@ -1,0 +1,32 @@
+Python:
+class Solution:
+    def getConcatenation(self, nums: List[int]) -> List[int]:
+        ans = []
+        for i in range(2):
+            ans.extend(nums)
+        return ans
+        
+Runtime: 80 ms, faster than 90.51% of Python3 online submissions for Concatenation of Array.
+Memory Usage: 14.5 MB, less than 80.96% of Python3 online submissions for Concatenation of Array.
+
+Java:
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int[] ans = new int[2*nums.length];
+        int i = 0;
+        int j = 0;
+        while(i<(2*nums.length)){
+            if(j==nums.length){
+                j = 0;
+            }
+            ans[i] = nums[j];
+            i++;
+            j++;
+        }
+        return ans;
+        
+    }
+}
+
+Runtime: 1 ms, faster than 60.90% of Java online submissions for Concatenation of Array.
+Memory Usage: 39.3 MB, less than 92.86% of Java online submissions for Concatenation of Array.
