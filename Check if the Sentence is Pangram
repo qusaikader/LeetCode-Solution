@@ -1,0 +1,34 @@
+Python:
+class Solution:
+    def checkIfPangram(self, sentence: str) -> bool:
+        lis = list(sentence)
+        for i in range(97, 123):
+            if lis.count(chr(i)) == 0 :
+                return False
+        return True
+ 
+Runtime: 32 ms, faster than 66.29% of Python3 online submissions for Check if the Sentence Is Pangram.
+Memory Usage: 14.2 MB, less than 74.08% of Python3 online submissions for Check if the Sentence Is Pangram.
+
+Java:
+class Solution {
+    public boolean checkIfPangram(String sentence) {
+        int len = sentence.length();
+        int count;
+        for(int i = 97;i<123;i++){
+            count = 0;
+            for(int j =0;j<len;j++){
+                if ((char)(i) == sentence.charAt(j)){
+                    count++;
+                }
+            }
+            if(count==0){
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+Runtime: 3 ms, faster than 27.81% of Java online submissions for Check if the Sentence Is Pangram.
+Memory Usage: 37.1 MB, less than 71.01% of Java online submissions for Check if the Sentence Is Pangram.
