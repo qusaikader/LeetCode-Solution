@@ -1,0 +1,26 @@
+Python:
+
+class Solution:
+    def buildArray(self, nums: List[int]) -> List[int]:
+        ans = []
+        for i in nums:
+            ans.append(nums[i])
+        return ans
+ 
+Java:
+
+class Solution {
+    public int[] buildArray(int[] nums) {
+        int[] ans = new int[nums.length];
+        int j = 0;
+        for(int i : nums){
+            ans[j] = nums[i];
+            j+=1;
+        }
+        return ans;    
+    }
+}
+
+
+Runtime: 1 ms, faster than 99.95% of Java online submissions for Build Array from Permutation.
+Memory Usage: 39.4 MB, less than 89.80% of Java online submissions for Build Array from Permutation.
