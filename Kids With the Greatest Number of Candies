@@ -1,0 +1,26 @@
+JAVA:
+  class Solution {
+    public List<Boolean> kidsWithCandies(int[] candies, int extraCandies) {
+        
+        ArrayList<Boolean> result = new ArrayList<>();
+        int max = candies[0];
+        for(int i:candies){
+            if(i>max){
+                max = i;
+            }    
+        }
+
+        for(int j:candies){
+            if((j+extraCandies)>=max){
+                result.add(true);
+            }
+            else{
+                result.add(false);
+            }
+        }
+        return result;
+    }
+}
+
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Kids With the Greatest Number of Candies.
+Memory Usage: 39.2 MB, less than 42.78% of Java online submissions for Kids With the Greatest Number of Candies.
