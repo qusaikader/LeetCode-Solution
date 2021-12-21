@@ -1,0 +1,32 @@
+Python:
+class Solution:
+    def createTargetArray(self, nums: List[int], index: List[int]) -> List[int]:
+        result = []
+        for i in range(len(nums)):
+            result.insert(index[i],nums[i])
+        return result
+
+Runtime: 28 ms, faster than 93.18% of Python3 online submissions for Create Target Array in the Given Order.
+Memory Usage: 14.3 MB, less than 15.91% of Python3 online submissions for Create Target Array in the Given Order.
+
+Java:
+class Solution {
+    public int[] createTargetArray(int[] nums, int[] index) {
+        int[] result = new int[nums.length];
+        int temp;
+        int temp2;
+        for(int i=0;i<nums.length;i++){
+            temp = result[index[i]];
+            result[index[i]] = nums[i];
+            
+            for(int j = index[i]+1; j<nums.length;j++){
+                temp2 = result[j];
+                result[j] = temp;
+                temp = temp2;
+            }
+        }
+        return result;
+    }
+}
+Runtime: 1 ms, faster than 49.72% of Java online submissions for Create Target Array in the Given Order.
+Memory Usage: 37.2 MB, less than 98.52% of Java online submissions for Create Target Array in the Given Order.
