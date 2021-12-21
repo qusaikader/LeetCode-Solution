@@ -1,0 +1,17 @@
+Java:
+class Solution {
+    public int largestAltitude(int[] gain) {
+        int max = 0;
+        int start = 0;
+        for(int i:gain){
+            start+=i;
+            if(start>max){
+                max = start;
+            }
+        }
+        return max;
+    }
+}
+
+Runtime: 0 ms, faster than 100.00% of Java online submissions for Find the Highest Altitude.
+Memory Usage: 36.3 MB, less than 94.03% of Java online submissions for Find the Highest Altitude.
