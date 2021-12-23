@@ -1,0 +1,70 @@
+Java:
+class Solution {
+    public List<Integer> luckyNumbers (int[][] matrix) {
+        ArrayList<Integer> minRow = new ArrayList<>();
+        ArrayList<Integer> maxCol = new ArrayList<>();
+        
+        for(int i=0;i<matrix.length;i++){
+            
+            int min = Integer.MAX_VALUE;
+            int col = 0;
+            while(col<matrix[i].length){
+                if(matrix[i][col] < min){
+                    min = matrix[i][col];
+                }
+                col++;
+            }
+            minRow.add(min);
+        }
+        
+       
+        
+        for(int i=0;i<matrix[0].length;i++){
+            int max = Integer.MIN_VALUE;
+            int row = 0;
+            while(row<matrix.length){
+                if(matrix[row][i] > max){
+                    max = matrix[row][i];
+                }
+                row++;
+            }
+            maxCol.add(max);
+        }
+        
+
+        
+        minRow.retainAll(maxCol);
+        return minRow;
+        
+        
+    }
+}
+Runtime: 3 ms, faster than 34.16% of Java online submissions for Lucky Numbers in a Matrix.
+Memory Usage: 39.1 MB, less than 92.92% of Java online submissions for Lucky Numbers in a Matrix.
+
+
+PYTHON:
+class Solution:
+    def luckyNumbers (self, matrix: List[List[int]]) -> List[int]:
+        min_val = []
+        max_val = []
+        
+        for i in matrix:
+            temp = min(i);
+            min_val.append(temp)
+            
+        for i in range(len(matrix[0])):
+            maxV = -9999
+            for j in range(len(matrix)):
+                if(maxV<matrix[j][i]):
+                    maxV = matrix[j][i] 
+                           
+            max_val.append(maxV)
+                           
+        min_val = (set(min_val))
+        max_val = (set(max_val))
+        x = (min_val.intersection(max_val))
+        return list(x)
+
+Runtime: 128 ms, faster than 69.55% of Python3 online submissions for Lucky Numbers in a Matrix.
+Memory Usage: 14.7 MB, less than 42.42% of Python3 online submissions for Lucky Numbers in a Matrix.
