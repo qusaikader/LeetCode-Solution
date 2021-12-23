@@ -1,0 +1,47 @@
+Python:
+class Solution:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        """
+        Do not return anything, modify matrix in-place instead.
+        """
+        indices = []
+        for i in range(len(matrix)):
+            for j in range(len(matrix[0])):
+                if(matrix[i][j] == 0):
+                    indices.append([i,j])
+                
+        for i in indices:
+            matrix[i[0]] = [0] * len(matrix[0])
+            for j in range(len(matrix)):
+                matrix[j][i[1]] = 0
+
+Runtime: 124 ms, faster than 90.04% of Python3 online submissions for Set Matrix Zeroes.
+Memory Usage: 15.2 MB, less than 46.60% of Python3 online submissions for Set Matrix Zeroes
+
+
+Java:
+class Solution {
+    public void setZeroes(int[][] matrix) {
+
+        ArrayList<ArrayList<Integer>> indices = new ArrayList<ArrayList<Integer>>();
+        
+        for(int i =0;i<matrix.length;i++){
+            for(int j = 0;j<matrix[0].length;j++){
+                if(matrix[i][j] == 0){
+                    indices.add(new ArrayList<Integer>(Arrays.asList(i,j)));
+                }
+            }
+        }
+                               
+        for(ArrayList<Integer> x:indices){
+            matrix[x.get(0)] = new int[matrix[0].length];
+            for(int j =0;j<matrix.length;j++){
+                matrix[j][x.get(1)] = 0;
+            }
+            
+        }
+    }
+}
+
+Runtime: 2 ms, faster than 42.16% of Java online submissions for Set Matrix Zeroes.
+Memory Usage: 40.5 MB, less than 67.67% of Java online submissions for Set Matrix Zeroes.
