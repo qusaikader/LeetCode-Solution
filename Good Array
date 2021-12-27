@@ -1,0 +1,74 @@
+Python:
+class Solution:
+    def isGoodArray(self, nums: List[int]) -> bool:
+        if len(nums) == 1 and nums[0] == 1:
+            return True
+            
+        if len(nums) == 1:
+            return False
+            
+        def find_gcd(x, y):
+
+            while(y):
+                x, y = y, x % y
+
+            return x
+        
+        num1 = nums[0]
+        num2 = nums[1]
+        gcd = find_gcd(num1, num2)
+
+        for i in range(2, len(nums)):
+            gcd = find_gcd(gcd, nums[i])
+
+        if gcd == 1:
+            return True
+        return False
+Runtime: 276 ms, faster than 52.27% of Python3 online submissions for Check If It Is a Good Array.
+Memory Usage: 24.8 MB, less than 69.32% of Python3 online submissions for Check If It Is a Good Array.
+
+Java:
+class Solution {
+    public boolean isGoodArray(int[] nums) {
+        
+        if((nums.length == 1) && (nums[0] == 1)){
+            return true;
+        }
+        if((nums.length == 1)){
+            return false;
+        }
+        
+        int numOne = nums[0];
+        int numTwo = nums[1];
+        
+        int gcd = gcdNumber(numOne,numTwo);
+
+        for(int i = 2;i<nums.length;i++){
+            gcd = gcdNumber(gcd,nums[i]);
+        }
+        if(gcd == 1){
+            return true;
+        }
+
+        return false;
+        
+        
+        
+        
+        
+    }
+    
+    static int gcdNumber(int x,int y){
+        while(y!=0){
+            int temp = y;
+            y = x%y;
+            x = temp;
+        }
+        return x;
+    }
+}
+
+Runtime: 2 ms, faster than 83.97% of Java online submissions for Check If It Is a Good Array.
+Memory Usage: 48.5 MB, less than 81.68% of Java online submissions for Check If It Is a Good Array
+        
+            
