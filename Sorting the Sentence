@@ -1,0 +1,18 @@
+Python:
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        x = s.split(" ")
+        result_list = [0] * len(x)
+        
+        for i in x:
+            index = int(i[-1]) - 1
+    
+            result_list[index] = i[:len(i)-1]
+            
+        return (" ".join(result_list))
+
+Runtime: 32 ms, faster than 55.54% of Python3 online submissions for Sorting the Sentence.
+Memory Usage: 14.3 MB, less than 47.66% of Python3 online submissions for Sorting the Sentence.
+
+
+
