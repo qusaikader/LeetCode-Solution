@@ -1,0 +1,34 @@
+Python:
+class Solution:
+    def arrayStringsAreEqual(self, word1: List[str], word2: List[str]) -> bool:
+        a = "".join(word1)
+        b = "".join(word2)
+        if a==b:
+            return True
+        else:
+            return False
+            
+Runtime: 36 ms, faster than 30.57% of Python3 online submissions for Check If Two String Arrays are Equivalent.
+Memory Usage: 14.3 MB, less than 33.96% of Python3 online submissions for Check If Two String Arrays are Equivalent.
+
+Java:
+class Solution {
+    public boolean arrayStringsAreEqual(String[] word1, String[] word2) {
+        String first_word = "";
+        String second_word = "";
+        for(int i = 0; i <word1.length;i++){
+            first_word+=word1[i];
+        }
+        for(int i = 0; i <word2.length;i++){
+            second_word+=word2[i];
+        }
+        
+        if(first_word.equals(second_word)){
+            return true;
+        }
+        else{
+            return false;
+        }
+        
+    }
+}
