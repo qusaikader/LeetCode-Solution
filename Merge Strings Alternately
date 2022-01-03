@@ -1,0 +1,22 @@
+Python:
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        length = len(word1) if len(word1) <= len(word2) else len(word2)
+        word1 = list(word1)
+        word2 = list(word2)
+        final_list = []
+        for i in range(length):
+            final_list.append(word1.pop(0))
+            final_list.append(word2.pop(0))
+        
+        if len(word1) != 0:
+            while (len(word1) != 0):
+                final_list.append(word1.pop(0))
+        if len(word2) != 0:
+            while (len(word2) != 0):
+                final_list.append(word2.pop(0))
+                
+                
+        return "".join(final_list)
+Runtime: 28 ms, faster than 86.13% of Python3 online submissions for Merge Strings Alternately.
+Memory Usage: 14.1 MB, less than 76.42% of Python3 online submissions for Merge Strings Alternately.
