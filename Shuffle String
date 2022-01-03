@@ -1,0 +1,28 @@
+Python:
+class Solution:
+    def restoreString(self, s: str, indices: List[int]) -> str:
+        ans_list = [0]*len(s)
+        for i in range(len(indices)):
+            ans_list[indices[i]] = s[i]
+            
+        return "".join(ans_list)
+        
+Runtime: 52 ms, faster than 83.32% of Python3 online submissions for Shuffle String.
+Memory Usage: 14.2 MB, less than 80.97% of Python3 online submissions for Shuffle String.        
+
+Java:
+class Solution {
+    public String restoreString(String s, int[] indices) {
+        char[] result = new char[s.length()];
+        for(int i = 0;i<indices.length;i++){
+            result[indices[i]] = s.charAt(i);
+        }
+        
+        String final_result = "";
+        for(char x: result){
+            final_result+=x;
+        }
+        return final_result;
+        
+    }
+}
