@@ -1,0 +1,19 @@
+Python:
+class Solution:
+    def areSentencesSimilar(self, sentence1: str, sentence2: str) -> bool:        
+        stack1 = (sentence1.split(" "))
+        stack2 = (sentence2.split(" "))  
+        while (stack1 and stack2):
+            if stack1[0] == stack2[0] or stack1[-1] == stack2[-1]:
+                if stack1[0] == stack2[0]:
+                    stack1.pop(0)
+                    stack2.pop(0)
+                else:
+                    stack1.pop()
+                    stack2.pop()
+            else:
+                return False
+            
+        return True
+Runtime: 24 ms, faster than 95.00% of Python3 online submissions for Sentence Similarity III.
+Memory Usage: 14.3 MB, less than 56.88% of Python3 online submissions for Sentence Similarity III.       
