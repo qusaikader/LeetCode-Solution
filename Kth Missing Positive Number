@@ -1,0 +1,32 @@
+Python:
+class Solution:
+    def findKthPositive(self, arr: List[int], k: int) -> int:
+        def binarySearch(nums,target):
+            start = 0
+            end  = len(nums) - 1
+            while(start<=end):
+                mid = int((start+end)/2)
+
+                if nums[mid]>target:
+                    end = mid - 1
+
+                elif nums[mid]<target:
+                    start = mid + 1
+
+                else:
+                    return mid
+            return -1
+        
+        missing = 0
+        for i in range(1,3000):
+            x = binarySearch(arr,i)
+            if x == -1:
+                missing+=1
+            if missing == k:
+                return i;
+        
+        
+        
+            
+            
+            
