@@ -1,0 +1,30 @@
+Java:
+class Solution {
+    public char nextGreatestLetter(char[] letters, char target) {
+        
+        return binarySearch(letters,target);
+    }
+    
+    
+    public char binarySearch(char[] nums , char target){
+        int start = 0;
+        int end = nums.length -1;
+        char potential = nums[0];
+        while(start <= end){
+            int mid = (start+end)/2;
+
+            if(nums[start] > target){
+                return nums[start];
+            }
+            else if (nums[mid] > target){
+                end = mid - 1;
+                potential = nums[mid];
+            }
+            else if (nums[mid] <= target){
+                start = mid + 1;
+            }
+
+        }
+        return potential;
+    }
+}
