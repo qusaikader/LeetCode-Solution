@@ -1,0 +1,8 @@
+        newstr = ""
+        index = 0
+        for i in range(len(s)):
+            if index < len(spaces) and i == spaces[index]:
+                newstr+=" "
+                index+=1
+            newstr+=s[i]
+        return newstr
