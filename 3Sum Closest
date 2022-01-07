@@ -25,3 +25,38 @@ class Solution:
         return ans
 Runtime: 116 ms, faster than 85.32% of Python3 online submissions for 3Sum Closest.
 Memory Usage: 14.3 MB, less than 71.78% of Python3 online submissions for 3Sum Closest.
+
+        int j = 1 , k =2,ans = 0;
+        
+        
+        Arrays.sort(nums);
+        
+        
+        int fsum = 0,diff = 0,fdiff = 999999;
+        for(int i =0 ; i < nums.length -2;i++){
+            j =  i + 1 ;
+            k = nums.length - 1;
+        while(j<k){
+            fsum = nums[i] + nums[j] + nums[k];
+            diff = Math.abs(target-fsum);
+            
+            if(fdiff>diff){
+                ans = fsum;
+                fdiff = diff;
+            }
+            
+            
+            if(fsum > target){
+                k--;
+            }
+            else if(fsum < target){
+                j++;
+            }
+            else{
+                return ans;
+                }
+        }      
+        }
+        return ans;
+    }
+}
