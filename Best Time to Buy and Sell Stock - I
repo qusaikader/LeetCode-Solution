@@ -13,3 +13,30 @@ class Solution:
 <<<RESULT>>> 
 Runtime: 944 ms, faster than 89.53% of Python3 online submissions for Best Time to Buy and Sell Stock.
 Memory Usage: 25.1 MB, less than 81.08% of Python3 online submissions for Best Time to Buy and Sell Stock 
+
+Java:
+class Solution {
+    public int maxProfit(int[] nums) {
+
+        int maxprofit = 0;
+        int minimum = -1;
+        for(int i = 0; i < nums.length; i++){
+            minimum = Math.max(minimum,nums[i]);
+        }
+        
+        for(int price: nums){
+            if (price < minimum){
+                minimum = price;
+            }
+            int profit = price - minimum;
+            maxprofit = Math.max(profit,maxprofit);
+        }
+        
+        return maxprofit;
+
+    }   
+}
+
+<<<Result>>>
+Runtime: 3 ms, faster than 34.55% of Java online submissions for Best Time to Buy and Sell Stock.
+Memory Usage: 51.9 MB, less than 79.24% of Java online submissions for Best Time to Buy and Sell Stock.
