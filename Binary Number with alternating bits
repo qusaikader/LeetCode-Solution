@@ -13,7 +13,51 @@ class Solution:
 
 
         return True
+        
+     
 
 
 Runtime: 32 ms, faster than 60.69% of Python3 online submissions for Binary Number with Alternating Bits.
 Memory Usage: 14 MB, less than 97.23% of Python3 online submissions for Binary Number with Alternating Bits.
+
+Java:
+class Solution {
+    public boolean hasAlternatingBits(int x) {
+        int i = 0;
+        boolean flag = false;
+
+        i = x & 1;
+        x = x>>1;
+
+        if( i == 0){
+            flag =false;
+        }
+        else{
+            flag = true;
+        }
+
+        boolean temp;
+        while(x!=0){
+            i = x & 1;
+            if( i == 0){
+                temp = false;
+            }
+            else{
+                temp = true;
+            }
+
+            if(flag == false && temp == false){
+                return false;
+            }
+            else if(flag == true && temp == true){
+                return false;
+            }
+            else{
+                flag = temp;
+            }
+            x = x>>1;
+        }
+        
+        return true;
+    }
+}
