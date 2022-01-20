@@ -28,3 +28,30 @@ class Solution {
 }
 Runtime: 1 ms, faster than 78.40% of Java online submissions for Cells with Odd Values in a Matrix.
 Memory Usage: 37 MB, less than 76.01% of Java online submissions for Cells with Odd Values in a Matrix.
+
+Python:
+class Solution:
+    def oddCells(self, m: int, n: int, indices: List[List[int]]) -> int:
+        matrix = []
+        for i in range(m):
+            row = [0] * n
+            matrix.append(row)
+            
+        for i in indices:
+            x = i[0]
+            for k in range(len(matrix[x])):
+                matrix[x][k]+=1
+            
+            for j in range(len(matrix)):
+                matrix[j][i[1]]+=1
+                
+                
+                
+        print(matrix)
+        odd_count = 0
+        for r in matrix:
+            for element in r:
+                if element%2 ==1:
+                    odd_count+=1
+            
+        return odd_count
