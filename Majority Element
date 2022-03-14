@@ -1,0 +1,17 @@
+CODE:
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
+        if len(nums) == 1:
+            return nums[0]
+
+        x = int(len(nums)/2)
+
+        elements = list(set(nums))     
+        for i in elements:
+            if nums.count(i) > x:
+                return i
+        
+
+RESULT:
+Runtime: 168 ms, faster than 92.86% of Python3 online submissions for Majority Element.
+Memory Usage: 15.6 MB, less than 31.60% of Python3 online submissions for Majority Element.
