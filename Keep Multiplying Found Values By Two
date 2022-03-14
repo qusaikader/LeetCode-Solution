@@ -1,0 +1,27 @@
+Code:
+class Solution:
+    def findFinalValue(self, nums: List[int], original: int) -> int:
+        
+        def searchOg(nums,original):
+            for i in range(len(nums)):
+                if nums[i] == original:
+                    return [True,i]
+            return [False,None]
+        
+        
+        
+        
+        nums = sorted(nums)
+        index = 0
+        while True:
+            x = searchOg(nums[index:],original)
+            flag = x[0]
+            if flag == True:
+                original*=2
+            else:
+                break
+        return original
+        
+Result:
+Runtime: 64 ms, faster than 92.71% of Python3 online submissions for Keep Multiplying Found Values by Two.
+Memory Usage: 14.2 MB, less than 24.31% of Python3 online submissions for Keep Multiplying Found Values by Two.
