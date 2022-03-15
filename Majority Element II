@@ -1,0 +1,22 @@
+CODE:
+class Solution:
+    def majorityElement(self, nums: List[int]) -> List[int]:
+        result = []
+        dict = {}
+        for i in nums:
+            if i not in dict:
+                dict[i] = 1
+            else:
+                dict[i] += 1
+                
+        for key,value in dict.items():
+            if value > len(nums)/3:
+                result.append(key)
+        
+        return result
+
+
+
+RESULT:
+Runtime: 124 ms, faster than 82.74% of Python3 online submissions for Majority Element II.
+Memory Usage: 15.2 MB, less than 79.01% of Python3 online submissions for Majority Element II
