@@ -1,0 +1,26 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def getDecimalValue(self, head: ListNode) -> int:
+        tempnode = head
+        binary_string = str(tempnode.val)
+        tempnode = tempnode.next
+        while tempnode!=None:
+            binary_string+=str(tempnode.val)
+            tempnode = tempnode.next
+        
+        binary_string = binary_string[::-1]
+        result = 0
+        for i in range(len(binary_string)-1,-1,-1):
+            result+=((2**i) * int(binary_string[i]))
+        
+        
+        return result
+
+RESULT:
+Runtime: 40 ms, faster than 63.80% of Python3 online submissions for Convert Binary Number in a Linked List to Integer.
+Memory Usage: 13.8 MB, less than 65.78% of Python3 online submissions for Convert Binary Number in a Linked List to Integer.
+       
