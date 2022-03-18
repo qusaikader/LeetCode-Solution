@@ -1,0 +1,29 @@
+CODE:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseBetween(self, head: Optional[ListNode], left: int, right: int) -> Optional[ListNode]:
+        if left == right:
+            return head
+        else:
+            while left<=right:
+                t1 = head
+                t2 = head
+                for i in range(left-1):
+                    t1 = t1.next
+                for j in range(right-1):
+                    t2 = t2.next
+                t1.val,t2.val = t2.val,t1.val
+                left+=1
+                right-=1
+        return head
+        
+RESULT:
+Runtime: 36 ms, faster than 76.71% of Python3 online submissions for Reverse Linked List II.
+Memory Usage: 14.1 MB, less than 61.21% of Python3 online submissions for Reverse Linked List II.
+                
+            
+        
