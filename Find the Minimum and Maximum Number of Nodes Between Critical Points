@@ -1,0 +1,43 @@
+CODE:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def nodesBetweenCriticalPoints(self, head: Optional[ListNode]) -> List[int]:
+        index = []
+        
+        
+        prev = head
+        tempnode = head.next
+        count = 1
+        while tempnode!=None:
+            
+            if tempnode.val > prev.val and  tempnode.next!=None:
+                if tempnode.val > tempnode.next.val:
+                    index.append(count)
+            
+            if tempnode.val < prev.val and  tempnode.next!=None:
+                if tempnode.val < tempnode.next.val:
+                    index.append(count)
+            
+            prev = tempnode
+            tempnode = tempnode.next
+            count+=1
+        
+
+        if len(index) == 0 or len(index) == 1:
+            return [-1,-1]
+        else:
+            maxD = index[len(index) - 1] - index[0]
+            minD = maxD
+            for i in range(1,len(index)):
+                if index[i] - index[i-1] < minD:
+                    minD = index[i] - index[i-1]
+            return [minD,maxD]
+            
+RESULT:
+Runtime: 1428 ms, faster than 36.05% of Python3 online submissions for Find the Minimum and Maximum Number of Nodes Between Critical Points.
+Memory Usage: 54.1 MB, less than 99.04% of Python3 online submissions for Find the Minimum and Maximum Number of Nodes Between Critical Points.
+              
