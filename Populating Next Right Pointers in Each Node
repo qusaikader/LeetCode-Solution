@@ -1,0 +1,50 @@
+CODE:
+"""
+# Definition for a Node.
+class Node:
+    def __init__(self, val: int = 0, left: 'Node' = None, right: 'Node' = None, next: 'Node' = None):
+        self.val = val
+        self.left = left
+        self.right = right
+        self.next = next
+"""
+import math
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if root == None:
+            return root
+        else:
+#method 1
+            queue_main = []
+            queue_main.append(root)
+            temp = []
+            while len(queue_main)!=0:
+                while len(queue_main) != 0:
+                    x = queue_main.pop(0)
+                    if len(queue_main) == 0:
+                        x.next = None
+                    else:
+                        x.next = queue_main[0]
+                    temp.append(x)
+                
+                while len(temp)!=0:
+                    x = temp.pop(0)
+                    if x.left!=None:
+                        queue_main.append(x.left)
+                    if x.right!=None:
+                        queue_main.append(x.right)
+        return root
+
+#method 2
+                # queue = [root]
+                # while queue:
+                #     q = queue.pop(0)
+                #     if q:
+                #         queue.append(q.left)
+                #         queue.append(q.right)
+                #         if len(queue) == 0 or math.log(len(queue),2) % 1 == 0:
+                #             q.next = None 
+                #         else:
+                #             q.next = queue[0]
+                # return root
+                
