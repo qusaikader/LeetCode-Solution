@@ -1,0 +1,14 @@
+Code:
+class Solution:
+    def missingNumber(self, nums: List[int]) -> int:
+        arr = []
+        for i in range(len(nums)+1):
+            arr.append(i)
+        
+        nums = set(nums)
+        arr = set(arr)
+        return (list(arr-nums)[0])
+       
+Result:
+Runtime: 136 ms, faster than 91.05% of Python3 online submissions for Missing Number.
+Memory Usage: 16.6 MB, less than 5.75% of Python3 online submissions for Missing Number
