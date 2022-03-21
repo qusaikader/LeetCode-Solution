@@ -1,0 +1,31 @@
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        tempnode = head
+
+        new_list = []
+        while tempnode.next!=None:
+            temp = tempnode.next
+            value = 0
+            while temp!=None and temp.val!=0:
+                value+=temp.val
+                temp = temp.next
+            new_list.append(value)
+            tempnode = temp
+        
+        new_head = ListNode(new_list[0])
+        tempnode = new_head
+        for i in range(1,len(new_list)):
+            node = ListNode(new_list[i])
+            tempnode.next = node
+            tempnode = tempnode.next
+        return new_head
+            
+RESULT:
+Runtime: 2828 ms, faster than 92.40% of Python3 online submissions for Merge Nodes in Between Zeros.
+Memory Usage: 104.4 MB, less than 6.66% of Python3 online submissions for Merge Nodes in Between Zeros.
