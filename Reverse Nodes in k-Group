@@ -1,0 +1,54 @@
+Code:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def reverseKGroup(self, head: Optional[ListNode], k: int) -> Optional[ListNode]:
+        if head.next == None:
+            return head
+        
+        length = 0
+        tempnode = head
+        while tempnode:
+            length+=1
+            tempnode = tempnode.next
+        
+        x = int(length/k)
+        
+        
+        tempnode = head
+        for i in range(x):
+            
+            start = tempnode
+            
+            
+            dummy = ListNode(tempnode.val)
+            temp = dummy
+            for j in range(k-1):
+                tempnode = tempnode.next
+                temp.next = ListNode(tempnode.val)
+                temp = temp.next
+                
+            prev = None
+            current = dummy
+            while(current is not None):
+                next = current.next
+                current.next = prev
+                prev = current
+                current = next
+            dummy = prev
+            
+            tempnode = tempnode.next
+            t2 = dummy
+            while start!=tempnode:
+                start.val = t2.val
+                start = start.next
+                t2 = t2.next
+            
+        return head
+                
+RESULT:
+Runtime: 95 ms, faster than 15.23% of Python3 online submissions for Reverse Nodes in k-Group.
+Memory Usage: 15.3 MB, less than 14.77% of Python3 online submissions for Reverse Nodes in k-Group.
