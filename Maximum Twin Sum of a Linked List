@@ -1,0 +1,27 @@
+CODE:
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def pairSum(self, head: Optional[ListNode]) -> int:
+        # (n-1-i)th
+        
+        nums = []
+        tempnode = head
+        while tempnode:
+            nums.append(tempnode.val)
+            tempnode = tempnode.next
+        
+        x = len(nums)
+        sums = []
+        for i in range(int(x/2)):
+            j  = x-i-1
+            sums.append(nums[i]+nums[j])
+        
+        return max(sums)
+        
+RESULT:
+Runtime: 1016 ms, faster than 83.63% of Python3 online submissions for Maximum Twin Sum of a Linked List.
+Memory Usage: 54.6 MB, less than 46.54% of Python3 online submissions for Maximum Twin Sum of a Linked List.
