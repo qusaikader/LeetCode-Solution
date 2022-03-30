@@ -1,0 +1,31 @@
+Code:
+'''
+class Solution:
+    def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if head == None:
+            return None
+        else:
+            tempnode = head
+            stack = []
+            while tempnode!=None:
+                if tempnode.child != None:
+                    tempnode.child.prev = tempnode
+                    if tempnode.next:
+                        stack.append(tempnode.next)
+                    tempnode.next = tempnode.child
+                    tempnode.child = None
+                temp = tempnode
+                tempnode = tempnode.next
+                
+                
+            for i in range(len(stack)):
+                nde = stack.pop(-1)
+                temp.next = nde
+                nde.prev = temp
+                while temp.next!=None:
+                    temp = temp.next
+            return head
+'''
+RESULT:
+Runtime: 36 ms, faster than 91.21% of Python3 online submissions for Flatten a Multilevel Doubly Linked List.
+Memory Usage: 14.7 MB, less than 51.65% of Python3 online submissions for Flatten a Multilevel Doubly Linked List.
