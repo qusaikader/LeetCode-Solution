@@ -1,0 +1,39 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        dic = {}
+        for i in nums:
+            if i in dic:
+                dic[i] +=1
+            if i not in dic:
+                dic[i] = 1
+        
+        count = list(dic.items())
+        count.sort(key = lambda count: count[1])
+        
+        result = []
+        j = -1
+        for i in range(k):
+            result.append(count[j][0])
+            j+=-1
+        
+        return result
+
+OPTIMIZED:
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        frequency = {}
+        for i in nums:
+            if i in frequency:
+                frequency[i] +=1
+            if i not in frequency:
+                frequency[i] = 1
+                
+        result = []
+        for key, value in sorted(frequency.items(), key = lambda x: x[1]):
+            result.append(key)
+        
+        return result[len(result)-k:]
+        
+        
+Runtime: 109 ms, faster than 82.41% of Python3 online submissions for Top K Frequent Elements.
+Memory Usage: 18.8 MB, less than 39.61% of Python3 online submissions for Top K Frequent Elements.
