@@ -1,0 +1,26 @@
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root == None:
+            return root
+        
+        que = [root]
+        while que:
+            temp = que.pop(0)
+            temp.left , temp.right = temp.right,temp.left
+            if temp.left:
+                que.append(temp.left)
+            if temp.right:
+                que.append(temp.right)
+
+                
+                
+        return root    
+        
+Runtime: 33 ms, faster than 80.71% of Python3 online submissions for Invert Binary Tree.
+Memory Usage: 13.9 MB, less than 61.17% of Python3 online submissions for Invert Binary Tree.        
