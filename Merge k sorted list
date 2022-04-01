@@ -1,0 +1,44 @@
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution:
+    def mergeKLists(self, lists: List[ListNode]) -> ListNode:
+        def mergeList(l1,l2):
+            head = ListNode()
+            node = head
+            while l1 and l2:
+                if l1.val < l2.val:
+                    node.next = l1
+                    l1 = l1.next
+                else:
+                    node.next = l2
+                    l2 = l2.next
+                node = node.next
+            if l1:
+                node.next = l1
+            if l2:
+                node.next = l2
+            return head.next
+    
+    
+    
+        if len(lists) == 0:
+            return None
+        elif len(lists) == 1:
+            return lists[0]
+        else:
+            k = len(lists)
+            cnt = 1
+            i = lists[0]
+            j = lists[cnt]
+            while cnt!=k-1:
+                i = mergeList(i,j)
+                cnt+=1
+                j = lists[cnt]
+            i = mergeList(i,j)
+            return i
+            
+Runtime: 3906 ms, faster than 8.06% of Python3 online submissions for Merge k Sorted Lists.
+Memory Usage: 17.6 MB, less than 95.21% of Python3 online submissions for Merge k Sorted Lists.
