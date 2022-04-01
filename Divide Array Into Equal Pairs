@@ -1,0 +1,11 @@
+class Solution:
+    def divideArray(self, nums: List[int]) -> bool:  
+        elements = set(nums) 
+        for i in elements:
+            if nums.count(i) % 2 != 0:
+                return False
+    
+        return True
+            
+Runtime: 171 ms, faster than 18.69% of Python3 online submissions for Divide Array Into Equal Pairs.
+Memory Usage: 14.1 MB, less than 66.99% of Python3 online submissions for Divide Array Into Equal Pairs. 
