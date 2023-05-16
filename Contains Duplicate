@@ -1,0 +1,18 @@
+Python Solution 1:
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        dem = set()
+        for n in nums:
+            if n in dem:
+                return True
+            dem.add(n)
+        
+        return False
+        
+
+Python Specific Solution 2:
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        if (len(nums) - len(set(nums))) != 0:
+            return True
+        return False
