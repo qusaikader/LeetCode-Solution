@@ -1,0 +1,11 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        hashMap = {}
+        for index,value in enumerate(nums):
+            if target-value in hashMap:
+                return [index,hashMap[target-value]] 
+            else:
+                hashMap[value] = index
+                
+The solution is done in O(N) time.
+Other solution is bruteforce which takes O(N^2) time.
